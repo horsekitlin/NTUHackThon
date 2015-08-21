@@ -2,7 +2,7 @@ import _ from 'lodash';
 import LoginManager from '../lib/LoginBase';
 import { Router } from 'express';
 import { Users } from '../models';
-import { getError, toRes } from '../lib/util';
+import { getError } from '../lib/util';
 
 let router = Router();
 
@@ -22,6 +22,7 @@ router.route("/created/")
                 user : user,
                 token : token
             };
+            req.message = "建立會員成功";
             next();
 
         }, function(err){

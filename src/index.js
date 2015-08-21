@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import db from './db';
 import { toRes } from "./lib/util";
 import middleware from './middleware';
-import { users } from "./api";
+import { users, rooms } from "./api";
 import multipartMiddleware from 'connect-multiparty';
 
 var app = express();
@@ -31,6 +31,8 @@ db( λ => {
 	//app.use('/api', api());
 
     app.use("/users", users, toRes);
+    app.use("/rooms", rooms, toRes);
+
 	app.server.listen(process.env.PORT || 8080);
 
 	console.log(`Started on port ${app.server.address().port}`);

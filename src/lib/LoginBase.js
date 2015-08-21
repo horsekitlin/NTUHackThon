@@ -29,7 +29,6 @@ class LoginBase{
             now = moment().unix(),
             user, err;
 
-        console.log(token);
         if(_.isEmpty(token)
                 || _.isUndefined(token)){
             req.error = getError("Token 不可為空", 520);
@@ -38,7 +37,7 @@ class LoginBase{
 
             try{
 
-                let query = jwt.decode(token, LoginManager._secrcykey);
+                var query = jwt.decode(token, LoginManager._secrcykey);
 
             }catch(err){
 
@@ -48,9 +47,22 @@ class LoginBase{
             }
 
             let userrs = Users.showById(query._id);
+
             userrs.then(function(user){
-                req._login_required = user;
+                if(_.isNull(user)){
+
+                    req.error = getError("使用者不存在", 521);
+                    res.json(req.error);
+
+                }else{
+                    req._login_required = user;
+                    next();
+                }
+            }, function(err){
+
+                req.error = err;
                 next();
+
             });
         }
 

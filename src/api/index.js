@@ -1,7 +1,10 @@
 import users from './users';
+import rooms from './rooms';
 
 export default {
 
-    users : users
+    users : users,
+
+    rooms : rooms
 
 };

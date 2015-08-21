@@ -1,5 +1,5 @@
 {
-  "name": "Hack 59",
+  "name": "Hack59",
   "version": "0.2.0",
   "description": "NTU Hackethon 2015 08 21",
   "main": "index.js",
@@ -14,9 +14,9 @@
     "bluebird": "^2.9.34",
     "body-parser": "^1.13.3",
     "compression": "^1.5.2",
+    "connect-multiparty": "^2.0.0",
     "cors": "^2.7.1",
     "express": "^4.13.3",
-    "gulp-livereload": "^3.8.0",
     "jwt-simple": "^0.3.0",
     "lodash": "^3.10.1",
     "moment": "^2.10.6",

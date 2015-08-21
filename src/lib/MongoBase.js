@@ -50,7 +50,6 @@ export default class Collection extends MongoBase{
     showById(id){
 
         return new Promise(function(resolve, reject){
-            console.log(this.model);
             this.model.findOne(
                 {_id : id})
             .exec()
